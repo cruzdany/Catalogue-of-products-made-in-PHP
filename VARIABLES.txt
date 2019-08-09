@@ -1,0 +1,93 @@
+#VARIABLES
+
+#If we want to declare a variable in php we have to use the '$' sign and then the name of the variable, we do not specify what type of data the variable is
+
+# 1 ################  CONEXION  ####################
+#They are part of the conexion.php file
+#This variables are needed for my conection with the database
+
+$host='localhost';   #Default host
+$user='root'; 		 #Default user
+$password='';		 #It has no password
+$db='products';		 #The database I am using is products
+
+
+# 2 ################  SAVE_OPER  ####################
+#These variables are part of the save_oper.php file
+
+$name = $_POST['name']; #This variable is called name and this uses the method post to put the values inside the row name of the table productsinfo from the database products
+
+$short_des = $_POST['short_des']; #This variable is called short_des and this uses the method post to put the values inside the row short_des of the table productsinfo from the database products
+
+$long_des = $_POST['long_des']; #This variable is called name and this uses the method post to put the values inside the row name of the table productsinfo from the database products
+
+$query="INSERT INTO productsinfo(name,short_description,long_description) VALUES('$name','$short_des','$long_des')"; #This variable is called $query and as it name says it, it executes a query derectly on the database, but since the php interphace. What this query does is to insert a product from the productsinfo table 
+
+$resultado=$connection->query($query); #This variable is called resultado and what it does, is to execute the query once that there is connection with the database
+
+
+# 3 ################  FORMULARIO  ####################
+This file does not have variables, it only have inputs, they are from the formulario.php file
+<input type="text" REQUIRED name="name" placeholder="Name" value="" /><br/><br/>
+
+<input type="text" REQUIRED name="short_des" placeholder="Short Description" value="" /><br/><br/>
+
+<input type="text" REQUIRED name="long_des" placeholder="Long Description" value="" /><br/><br/>
+
+<input type="submit" name="submit" value="Submit" />
+
+
+# 4 ################  DELETE  ####################
+#This variables are part of the delete.php file
+
+$query="DELETE FROM productsinfo WHERE id='$id'";  #This variable is called $query and as it name says it, it executes a query derectly on the database, but since the php interphace. What this query does is to delete a product from the productsinfo table which matches only with the id specified
+
+$resultado=$connection->query($query); #This variable is called resultado and what it does, is to execute the query once that there is connection with the database
+
+
+# 5 ################  MODIFY  ####################
+#This variables are part of the modify.php file
+
+$id=$_REQUEST['id'];  #The name of this variable is id and here it uses the request method to request the id, it will act only with the id asked
+
+$query="SELECT * FROM productsinfo WHERE id='$id'"; #This variable is called $query and as it name says it, it executes a query derectly on the database, but since the php interphace. The query selects the product that matches with the id specified
+
+$resultado=$connection->query($query);  #This variable is called resultado and what it does, is to execute the query once that there is connection
+
+$row=$resultado->fetch_assoc(); #This variable is called row and what this does is establish connection with the resultado 
+by returning an associative string array representing the row obtained from the resultset, where each key in the matrix corresponds to the name of one of its columns
+
+
+# 6 ################  MODIFY_OPER  ####################
+#These variables are from the modify_oper.php file
+$id=$_REQUEST['id']; #This variable is called "id" and it uses the method "request" to request the row id of the table productsinfo from the database products
+
+$name = $_POST['name']; #This variable is called "name" and it uses the methos "post" to post the row name of the table productsinfo from the database products
+
+$short_des = $_POST['short_des']; #This variable is called "short_des" and it uses the methos "post" to post the row short_description of the table productsinfo from the database products
+
+$long_des = $_POST['long_des']; #This variable is called "long_des" and it uses the methos "post" to post the row long_description of the table productsinfo from the database products
+
+$query="UPDATE productsinfo SET name='$name', short_description='$short_des', long_description='$long_des' WHERE id='$id' "; #This variable is called $query and as it name says it, it executes a query derectly on the database, but since the php interphace. The query updates the product that matches with the id specified
+
+$resultado=$connection->query($query); #This variable is called resultado and this establishes the connection with the database and after that executes the query
+
+# 7 ################  TABE  ####################
+#This file is called tabe.php which is the table of the whole products
+$query="SELECT * FROM productsinfo";  #Variable called query that makes a query 
+
+$resultado=$connection->query($query);  #Variable called resultado that if there is connection makes the query
+while($row=$resultado->fetch_assoc()){   #As long as the result makes the connection, it returns an associative string array representing the row obtained from the resultset, where each key in the matrix corresponds to the name of one of its columns
+
+?>
+<tr>
+			
+<td><?php echo $row['name']; ?></td>  <!-- This prints the value of the row name -->
+<td><?php echo $row['short_description']; ?></td> <!-- This prints the value of the row short_description -->
+<td><?php echo $row['long_description']; ?></td> <!-- This prints the value of the row long_description -->
+<td><a href="modify.php?id=<?php echo $row['id']; ?>">Modify</a></td>  <!-- This executes the button modify by going to the modify.php file -->
+<td><a href="delete.php?id=<?php echo $row['id']; ?>">Delete</a></td> <!-- This executes the button delete by going to the delete.php file -->
+</tr>	
+				
+			<?php
+				} #All this executes

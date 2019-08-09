@@ -1,0 +1,12 @@
+#EXPLANATION OF THE CODES
+#These codes are part of a catalogue of products, which the code is made up in php and sql by using the program XAMPP, which it is a free software package, which consists mainly of the MySQL database management system, the Apache web server and the interpreters for PHP and Perl scripting languages. The name is actually an acronym: X (for any of the different operating systems), Apache, MariaDB / MySQL, PHP, Perl.
+
+#I did in total 7 files that are done all in the php format and combining html and sql languages.
+
+#The first file is called conexion.php, which establishes the connection between the sql database and the php interphace 
+#The second file is called formulario.php, which prints the Name, short description of the product and the long description of the product
+#The third file is called save_oper.php, this saves the values inside the database. In other words send the values directly to the database 
+#The fourth file is called tabe.pho that includes the whole table of the catalogue. It prints whatever there is on the database on screen.
+#The fifth file is called modify.php and what this does is to modify the existing files, you will be able to modify the name, short description and long description of the products that mathces with the specified id. You wont be able to modify the id, since it is unique for each product and is autoincremental.
+#The sixth file is called modify_oper.php and what this does is executing the query on the database.
+#The seventh file is called delete.php and what this does is to delete the products that matches with the specified id, it will be deleted it from the whole database. 

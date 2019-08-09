@@ -1,0 +1,35 @@
+#################  FUNCTIONS  ###################
+
+################  CONECTIONS  ####################
+
+
+$connection=@mysqli_connect($host,$user,$password,$db); #This function makes the connection with the database and its name is connection.
+
+$resultado=$connection->query($query); #This function execute the query once that there is connection with the database, its name is resultado.
+
+$row=$resultado->fetch_assoc(); #This function establishes connection with the resultado by returning an associative string array representing the row obtained from the resultset, where each key in the matrix corresponds to the name of one of its columns. Its name is $row.
+
+
+##############  REQUEST AND POST  ###############
+
+$id=$_REQUEST['id']; #This function request the id of a product and its name is "id"
+
+$name = $_POST['name']; #This function posts the name of a product and its name is "name"
+
+$short_des = $_POST['short_des']; #This function posts the short description of a product and its name is "short_des"
+
+$long_des = $_POST['long_des']; #This function posts the long description of a product and its name is "long_des"
+
+
+########### 	QUERIES FUNCTIONS      ###############
+
+$query="INSERT INTO productsinfo(name,short_description,long_description) VALUES('$name','$short_des','$long_des')"; #This fucntion executes a query that inserts the product that matches with the id specified from the table products info. It inserts the fileds name, short_description and long_description Its name is $query
+
+$query="SELECT * FROM productsinfo WHERE id='$id'"; #This fucntion executes a query that selecets the product that matches with the id specified from the table products info. Its name is $query
+
+$query="UPDATE productsinfo SET name='$name', short_description='$short_des', long_description='$long_des' WHERE id='$id' "; #This fucntion executes a query that modify the product that matches with the id specified from the table products info. It updates the fileds name, short_description and long_description Its name is $query
+
+$query="DELETE FROM productsinfo WHERE id='$id'";  #This fucntion executes a query that deletes the product that matches with the id specified from the table products info. Its name is $query
+
+
+

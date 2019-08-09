@@ -13,6 +13,7 @@
 			<input type="text" REQUIRED name="long_des" placeholder="Long Description" value="" /><br/><br/>
 			<input type="submit" name="submit" value="Submit" />
 
+
 		</form>
 	</center>
 
