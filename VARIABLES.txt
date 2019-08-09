@@ -54,8 +54,7 @@ $query="SELECT * FROM productsinfo WHERE id='$id'"; #This variable is called $qu
 
 $resultado=$connection->query($query);  #This variable is called resultado and what it does, is to execute the query once that there is connection
 
-$row=$resultado->fetch_assoc(); #This variable is called row and what this does is establish connection with the resultado 
-by returning an associative string array representing the row obtained from the resultset, where each key in the matrix corresponds to the name of one of its columns
+$row=$resultado->fetch_assoc(); #This variable is called row and what this does is establish connection with the resultado by returning an associative string array representing the row obtained from the resultset, where each key in the matrix corresponds to the name of one of its columns
 
 
 # 6 ################  MODIFY_OPER  ####################
