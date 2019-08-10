@@ -1,4 +1,4 @@
-#T his catalogue of proucts is made up in PHP, MySQL and HTML  :sunglasses:
+# This catalogue of proucts is made up in PHP, MySQL and HTML  :sunglasses:
 
 # Material needed:
 -XAMPP
