@@ -1,8 +1,8 @@
 # This catalogue of proucts is made up in PHP, MySQL and HTML  :sunglasses:
 
 # Material needed:
--XAMPP
--Text Editor, I used Sublime Text
+- XAMPP
+- Text Editor, I used Sublime Text
 
 # Steps
 1. The first step is to create a database on XAMPP
